@@ -1,0 +1,1 @@
+export {ChatCardProps} from './chatCard';

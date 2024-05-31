@@ -8,34 +8,35 @@ import {useTheme} from 'shared/lib';
 export const Chats = () => {
   const {toggleTheme, colorScheme, theme} = useTheme();
   return (
-    <LinearGradient
-      start={{x: 1.1, y: 0.9}}
+    // <LinearGradient
+    //   start={{x: 1.1, y: 0.9}}
+    //   style={{
+    //     flex: 1,
+    //   }}
+    //   colors={[colorScheme.primary, colorScheme.quaternary]}>
+    <View
       style={{
         flex: 1,
-      }}
-      colors={[colorScheme.primary, colorScheme.quaternary]}>
-      <View
+        paddingTop: initialWindowMetrics?.insets.top,
+        paddingHorizontal: 12,
+        backgroundColor: colorScheme.quaternary,
+      }}>
+      <TouchableOpacity
+        onPress={toggleTheme}
         style={{
-          flex: 1,
-          paddingTop: initialWindowMetrics?.insets.top,
-          paddingHorizontal: 12,
+          width: '100%',
+          height: 60,
+          backgroundColor: colorScheme.tertiary,
         }}>
-        <TouchableOpacity
-          onPress={toggleTheme}
-          style={{
-            width: '100%',
-            height: 60,
-            backgroundColor: colorScheme.tertiary,
-          }}>
-          <Text>{theme}</Text>
-        </TouchableOpacity>
-        <ChatCard />
-        <ChatCard />
-        <ChatCard />
-        <ChatCard />
-        <ChatCard />
-        {/*<FlatList data={} renderItem={} />*/}
-      </View>
-    </LinearGradient>
+        <Text>{theme}</Text>
+      </TouchableOpacity>
+      <ChatCard name={'New Chat'} lastMessage={'Last Message'} />
+      <ChatCard />
+      <ChatCard />
+      <ChatCard />
+      <ChatCard />
+      {/*<FlatList data={} renderItem={} />*/}
+    </View>
+    // </LinearGradient>
   );
 };

@@ -9,6 +9,8 @@ export type ThemeValues = {
   tertiary: string;
 
   quaternary: string;
+
+  textPrimary: string;
 };
 
 export type ColorScheme = Record<ThemeKeys, ThemeValues>;

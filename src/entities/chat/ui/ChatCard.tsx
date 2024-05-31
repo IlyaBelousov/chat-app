@@ -1,64 +1,107 @@
 import React from 'react';
-import {View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import {useTheme} from 'shared/lib';
+import {ChatCardProps} from 'entities/chat/types';
+import UniversalAvatar from 'shared/ui/UniversalAvatar';
 
-const ChatImage = () => {
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: 50,
+    flexDirection: 'row',
+    marginTop: 8,
+    alignItems: 'center',
+    paddingBottom: 8,
+    paddingLeft: 4,
+  },
+  chatName: {
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  chatMessage: {
+    fontSize: 12,
+    fontWeight: '400',
+    marginTop: 4,
+  },
+});
+
+const ChatImage = (props: {image?: string}) => {
+  const {colorScheme} = useTheme();
+  const {image} = props;
+  return (
+    <UniversalAvatar
+      image={image}
+      containerStyle={{
+        backgroundColor: colorScheme.tertiary,
+        borderRadius: 30,
+      }}
+    />
+  );
+};
+
+const ChatContent = (props: {name: string; message?: string}) => {
+  const {name, message} = props;
+
+  const {colorScheme} = useTheme();
   return (
     <View
       style={{
-        width: 50,
-        backgroundColor: 'green',
         height: '100%',
-        justifyContent: 'center',
-        alignItems: 'center',
+        flex: 0.8,
+        marginLeft: 12,
       }}>
-      <View
-        style={{
-          width: 40,
-          height: 40,
-          borderRadius: 30,
-          backgroundColor: '#FFFFFF',
-        }}
-      />
+      <Text
+        style={[
+          styles.chatName,
+          {
+            color: colorScheme.textPrimary,
+          },
+        ]}>
+        {name}
+      </Text>
+      <Text
+        style={[
+          styles.chatMessage,
+          {
+            color: colorScheme.textPrimary,
+          },
+        ]}>
+        {message}
+      </Text>
     </View>
   );
 };
 
-const ChatContent = () => {
-  return (
-    <View
-      style={{
-        height: '100%',
-        backgroundColor: 'red',
-        flex: 0.8,
-      }}
-    />
-  );
-};
-
-const ChatInfo = () => {
+const ChatInfo = (props: {date?: string}) => {
+  const {date} = props;
   return (
     <View
       style={{
         flex: 0.2,
-        backgroundColor: 'blue',
         height: '100%',
-      }}
-    />
+      }}>
+      <Text>{date}</Text>
+    </View>
   );
 };
 
-const ChatCard = () => {
+const ChatCard = (props: ChatCardProps) => {
+  const {image, name, date, lastMessage} = props;
+
+  const {colorScheme} = useTheme();
   return (
     <View
-      style={{
-        width: '100%',
-        height: 50,
-        flexDirection: 'row',
-        marginTop: 4,
-      }}>
-      <ChatImage />
-      <ChatContent />
-      <ChatInfo />
+      style={[
+        styles.container,
+        {
+          backgroundColor: colorScheme.quaternary,
+          borderBottomWidth: 1,
+          borderBottomColor: colorScheme.secondary,
+        },
+      ]}>
+      <ChatImage image={image} />
+      <ChatContent name={name} message={lastMessage} />
+      <ChatInfo date={date} />
     </View>
   );
 };

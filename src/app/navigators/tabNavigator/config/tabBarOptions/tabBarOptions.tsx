@@ -58,7 +58,6 @@ export const getTabBarOptions = ({
               height: TAB_ICON_SIZE * 2,
               width: TAB_ICON_SIZE * 2,
               borderRadius: (TAB_ICON_SIZE * 2) / 2,
-              backgroundColor: 'aquamarine',
               justifyContent: 'center',
               alignItems: 'center',
             }}>
