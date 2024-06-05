@@ -1,11 +1,12 @@
-import React, {FC, useEffect, useMemo, useState} from 'react';
+import React, {ReactNode, useEffect, useMemo, useState} from 'react';
 import {ThemeContext} from 'shared/lib';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {LocalStorageKeys} from 'shared/constants';
 import {ThemeContextProps, ThemeKeys} from 'shared/types/themeTypes';
 import {themeConfig} from 'shared/config';
 
-export const ThemeProvider: FC = ({children}) => {
+export const ThemeProvider = (props: {children: ReactNode}) => {
+  const {children} = props;
   const [theme, setTheme] = useState(ThemeKeys.dark);
 
   const defaultProps = useMemo(

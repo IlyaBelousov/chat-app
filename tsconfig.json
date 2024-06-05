@@ -10,15 +10,16 @@
     "paths": {
       "*": ["./src/*"],
     },
-    "moduleResolution": "node",
+    "moduleResolution": "node16",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "module": "ESNext"
+    "module": "ES6"
   },
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
-    }
+      "module": "ES6",
+      "moduleResolution": "node16"
+     }
   },
   "lib": ["es2017"]
 }

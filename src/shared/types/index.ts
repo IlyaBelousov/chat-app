@@ -7,3 +7,6 @@ export {
   ThemeValues,
   ThemeContextProps,
 } from './themeTypes';
+
+export {AuthProps} from './authTypes';
+export {LoaderProps} from './loaderTypes';

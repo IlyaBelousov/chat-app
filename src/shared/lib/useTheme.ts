@@ -8,9 +8,9 @@ export const useTheme = () => {
   const {theme, setTheme, colorScheme} = useContext(ThemeContext);
 
   const toggleTheme = async () => {
-    const prevTheme = (await AsyncStorage.getItem(
-      LocalStorageKeys.theme,
-    )) as ThemeKeys;
+    const prevTheme =
+      ((await AsyncStorage.getItem(LocalStorageKeys.theme)) as ThemeKeys) ||
+      ThemeKeys.dark;
 
     const correctedTheme =
       prevTheme === ThemeKeys.dark ? ThemeKeys.light : ThemeKeys.dark;

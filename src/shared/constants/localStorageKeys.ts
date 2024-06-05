@@ -1,3 +1,5 @@
 export enum LocalStorageKeys {
-  theme = 'theme'
+  theme = 'theme',
+  isAuth = 'isAuth',
+  clientId = 'clientId',
 }

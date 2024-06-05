@@ -8,5 +8,3 @@ export const firebaseConfig = {
   messagingSenderId: Config.FB_MESSAGE_SENDER,
   appId: Config.FB_APP_ID,
 };
-
-console.log('BIS Config.FB_API_KEY', Config.FB_API_KEY);
