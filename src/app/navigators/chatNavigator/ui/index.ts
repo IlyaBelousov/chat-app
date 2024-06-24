@@ -1,0 +1,1 @@
+export { ChatNavigator } from './ChatNavigator';

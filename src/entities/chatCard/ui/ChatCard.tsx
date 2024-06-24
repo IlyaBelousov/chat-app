@@ -1,7 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {useTheme} from 'shared/lib';
-import {ChatCardProps} from 'entities/chat/types';
+import {
+  StyleSheet, Text, TouchableOpacity, View,
+} from 'react-native';
+import { useTheme } from 'shared/lib';
+import { Chat } from 'src/entities/chatCard/types';
 import UniversalAvatar from 'shared/ui/UniversalAvatar';
 
 const styles = StyleSheet.create({
@@ -25,9 +27,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const ChatImage = (props: {image?: string}) => {
-  const {colorScheme} = useTheme();
-  const {image} = props;
+const ChatImage = (props: { image?: string }) => {
+  const { colorScheme } = useTheme();
+  const { image } = props;
   return (
     <UniversalAvatar
       image={image}
@@ -39,24 +41,26 @@ const ChatImage = (props: {image?: string}) => {
   );
 };
 
-const ChatContent = (props: {name: string; message?: string}) => {
-  const {name, message} = props;
+const ChatContent = (props: { name: string; message?: string }) => {
+  const { name, message } = props;
 
-  const {colorScheme} = useTheme();
+  const { colorScheme } = useTheme();
   return (
     <View
       style={{
         height: '100%',
         flex: 0.8,
         marginLeft: 12,
-      }}>
+      }}
+    >
       <Text
         style={[
           styles.chatName,
           {
             color: colorScheme.textPrimary,
           },
-        ]}>
+        ]}
+      >
         {name}
       </Text>
       <Text
@@ -65,32 +69,37 @@ const ChatContent = (props: {name: string; message?: string}) => {
           {
             color: colorScheme.textPrimary,
           },
-        ]}>
+        ]}
+      >
         {message}
       </Text>
     </View>
   );
 };
 
-const ChatInfo = (props: {date?: string}) => {
-  const {date} = props;
+const ChatInfo = (props: { date?: string }) => {
+  const { date } = props;
   return (
     <View
       style={{
         flex: 0.2,
         height: '100%',
-      }}>
+      }}
+    >
       <Text>{date}</Text>
     </View>
   );
 };
 
-const ChatCard = (props: ChatCardProps) => {
-  const {image, name, date, lastMessage} = props;
+const ChatCard = (props: Chat) => {
+  const {
+    image, name, date, lastMessage, id, onPress,
+  } = props;
 
-  const {colorScheme} = useTheme();
+  const { colorScheme } = useTheme();
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => onPress({ name, id })}
       style={[
         styles.container,
         {
@@ -98,11 +107,12 @@ const ChatCard = (props: ChatCardProps) => {
           borderBottomWidth: 1,
           borderBottomColor: colorScheme.secondary,
         },
-      ]}>
+      ]}
+    >
       <ChatImage image={image} />
       <ChatContent name={name} message={lastMessage} />
       <ChatInfo date={date} />
-    </View>
+    </TouchableOpacity>
   );
 };
 

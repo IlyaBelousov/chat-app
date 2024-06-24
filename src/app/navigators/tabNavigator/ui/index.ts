@@ -1,1 +1,1 @@
-export {TabNavigator} from './TabNavigator/TabNavigator';
+export { TabNavigator } from './TabNavigator/TabNavigator';

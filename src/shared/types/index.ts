@@ -1,5 +1,5 @@
-export {TabScreen} from './tabTypes';
-export {TabsParamList} from './tabTypes';
+export { TabScreen } from './tabTypes';
+export { TabsParamList } from './tabTypes';
 
 export {
   ColorScheme,
@@ -8,5 +8,6 @@ export {
   ThemeContextProps,
 } from './themeTypes';
 
-export {AuthProps} from './authTypes';
-export {LoaderProps} from './loaderTypes';
+export { LoaderProps } from './loaderTypes';
+
+export type { VoidFunction } from './common';

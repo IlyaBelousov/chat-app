@@ -1,7 +1,9 @@
 import React from 'react';
-import {Image, ImageStyle, StyleSheet, View, ViewStyle} from 'react-native';
-import {DefaultAvatarIcon} from 'shared/assets/icons';
-import {useTheme} from 'shared/lib';
+import {
+  Image, ImageStyle, StyleSheet, View, ViewStyle,
+} from 'react-native';
+import { DefaultAvatarIcon } from 'shared/assets/icons';
+import { useTheme } from 'shared/lib';
 
 const DEFAULT_SIZE = 50;
 
@@ -20,7 +22,7 @@ const UniversalAvatar = (props: {
   containerSize?: number;
   defaultImageColor?: string;
 }) => {
-  const {colorScheme} = useTheme();
+  const { colorScheme } = useTheme();
   const {
     image,
     containerStyle,
@@ -31,7 +33,7 @@ const UniversalAvatar = (props: {
   const iconSize = containerSize / 1.6;
   return image ? (
     <View style={[styles.container, containerStyle]}>
-      <Image source={{uri: image}} />
+      <Image source={{ uri: image }} />
     </View>
   ) : (
     <View style={[styles.container, containerStyle]}>

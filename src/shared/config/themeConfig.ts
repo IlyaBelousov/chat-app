@@ -1,4 +1,4 @@
-import {ColorScheme} from 'shared/types';
+import { ColorScheme } from 'shared/types';
 
 export const themeConfig: ColorScheme = {
   dark: {

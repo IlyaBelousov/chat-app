@@ -1,3 +1,3 @@
 import ChatCard from './ChatCard';
 
-export {ChatCard};
+export { ChatCard };

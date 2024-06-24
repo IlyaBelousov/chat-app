@@ -1,1 +1,1 @@
-export {firebaseConfig} from './firebaseConfig';
+export { firebaseConfig } from './firebaseConfig';

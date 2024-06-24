@@ -1,2 +1,2 @@
-export {tabsConfig} from './tabsConfig';
-export {getTabBarOptions} from './tabBarOptions/tabBarOptions';
+export { tabsConfig } from './tabsConfig';
+export { getTabBarOptions } from './tabBarOptions/tabBarOptions';

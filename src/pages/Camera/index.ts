@@ -1,1 +1,1 @@
-export {Camera} from './ui/Camera';
+export { Camera } from './ui/Camera';

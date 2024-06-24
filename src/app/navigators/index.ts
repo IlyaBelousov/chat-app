@@ -1,1 +1,1 @@
-export type {TabScreenProps} from './tabNavigator/types/tabTypes';
+export type { TabScreenProps } from './tabNavigator/types/tabTypes';

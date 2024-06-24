@@ -1,11 +1,12 @@
-import {BottomTabNavigationOptions} from '@react-navigation/bottom-tabs';
-import {TabScreen, TabsParamList} from 'shared/types';
-import {RouteProp} from '@react-navigation/native';
-import {CameraIcon, ChatIcon, ContactsIcon} from 'shared/assets/icons';
-import {View} from 'react-native';
-import {getHeightWithPercentage} from 'shared/constants';
+import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
+import { TabScreen, TabsParamList } from 'shared/types';
+import { RouteProp } from '@react-navigation/native';
+import { CameraIcon, ChatIcon, ContactsIcon } from 'shared/assets/icons';
+import { View } from 'react-native';
+import { getHeightWithPercentage } from 'shared/constants';
 import LinearGradient from 'react-native-linear-gradient';
-import {useTheme} from 'shared/lib';
+import { useTheme } from 'shared/lib';
+
 const TAB_ICON_SIZE = 30;
 
 const TAB_BAR_HEIGHT = getHeightWithPercentage(14);
@@ -20,18 +21,18 @@ export const getTabBarOptions = ({
   route,
   tabBarActiveTintColor,
 }: OptionsParams): BottomTabNavigationOptions => {
-  const {name} = route;
+  const { name } = route;
 
-  const {colorScheme} = useTheme();
+  const { colorScheme } = useTheme();
 
   const tabByRouteName = {
     [TabScreen.chats]: {
-      tabBarIcon: ({color, focused}) => {
+      tabBarIcon: ({ color, focused }) => {
         const additionalIconStyle = focused
           ? {
-              fill: color,
-            }
-          : {stroke: color};
+            fill: color,
+          }
+          : { stroke: color };
         return (
           <ChatIcon
             {...additionalIconStyle}
@@ -42,7 +43,7 @@ export const getTabBarOptions = ({
       },
     },
     [TabScreen.camera]: {
-      tabBarIcon: ({color, focused}) => (
+      tabBarIcon: ({ color, focused }) => (
         <View
           style={{
             height: TAB_ICON_SIZE * 2,
@@ -51,7 +52,8 @@ export const getTabBarOptions = ({
             backgroundColor: 'aquamarine',
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <LinearGradient
             colors={['#06c0f8', '#06f8cc', colorScheme.primary]}
             style={{
@@ -60,7 +62,8 @@ export const getTabBarOptions = ({
               borderRadius: (TAB_ICON_SIZE * 2) / 2,
               justifyContent: 'center',
               alignItems: 'center',
-            }}>
+            }}
+          >
             <CameraIcon
               fill={colorScheme.tertiary}
               width={TAB_ICON_SIZE}
@@ -71,7 +74,7 @@ export const getTabBarOptions = ({
       ),
     },
     [TabScreen.contacts]: {
-      tabBarIcon: ({color, focused}) => (
+      tabBarIcon: ({ color, focused }) => (
         <ContactsIcon
           fill={color}
           width={TAB_ICON_SIZE}

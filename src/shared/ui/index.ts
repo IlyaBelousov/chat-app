@@ -1,2 +1,2 @@
-export {OptionalRender} from './OptionalRender';
-export {UniversalAvatar} from './UniversalAvatar';
+export { OptionalRender } from './OptionalRender';
+export { UniversalAvatar } from './UniversalAvatar';

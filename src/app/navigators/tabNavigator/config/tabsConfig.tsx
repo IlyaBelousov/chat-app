@@ -1,8 +1,8 @@
-import {Chats} from 'pages/Chats';
-import {Camera} from 'pages/Camera';
-import {Contacts} from 'pages/Contacts';
-import {TabScreen} from 'shared/types';
-import {TabScreenProps} from 'app/navigators';
+import { Chats } from 'pages/Chats';
+import { Camera } from 'pages/Camera';
+import { Contacts } from 'pages/Contacts';
+import { TabScreen } from 'shared/types';
+import { TabScreenProps } from 'app/navigators';
 
 export const tabsConfig: Record<TabScreen, TabScreenProps> = {
   [TabScreen.chats]: {

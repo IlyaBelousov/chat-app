@@ -1,14 +1,14 @@
-import React, {ReactNode, useContext} from 'react';
-import {LoaderContext} from 'shared/lib/loaderContext';
-import {Text, View} from 'react-native';
-import {useAuth} from 'shared/lib/useAuth';
+import React, { ReactNode, useContext } from 'react';
+import { LoaderContext } from 'shared/lib/loaderContext';
+import { Text, View } from 'react-native';
+import { useAuthStore } from 'features/auth/store';
 
-const LoaderProvider = (props: {children: ReactNode}) => {
-  const {children} = props;
+const LoaderProvider = (props: { children: ReactNode }) => {
+  const { children } = props;
 
-  const {isLoading, setIsLoading} = useContext(LoaderContext);
+  const { isLoading, setIsLoading } = useContext(LoaderContext);
 
-  const {isAuthLoading, isAuth} = useAuth();
+  const { isAuthLoading, isAuth } = useAuthStore();
 
   console.log('BIS isAuthLoading', isAuthLoading);
 
@@ -17,7 +17,8 @@ const LoaderProvider = (props: {children: ReactNode}) => {
       value={{
         isLoading,
         setIsLoading,
-      }}>
+      }}
+    >
       {isAuthLoading && !isAuth ? (
         <View
           style={{
@@ -25,7 +26,8 @@ const LoaderProvider = (props: {children: ReactNode}) => {
             backgroundColor: 'white',
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <Text> Loading .....</Text>
         </View>
       ) : (

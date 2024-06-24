@@ -1,1 +1,1 @@
-export {UnAuthorizedNavigator} from './UnAuthorizedNavigator';
+export { UnAuthorizedNavigator } from './UnAuthorizedNavigator';

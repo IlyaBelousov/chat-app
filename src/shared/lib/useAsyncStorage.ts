@@ -1,7 +1,7 @@
-import {useContext} from 'react';
-import {LoaderContext} from 'shared/lib/loaderContext';
+import { useContext } from 'react';
+import { LoaderContext } from 'shared/lib/loaderContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {LocalStorageKeys} from 'shared/constants';
+import { LocalStorageKeys } from 'shared/constants';
 
 export const useAsyncStorage = () => {
   const getItem = async (name: LocalStorageKeys) => {

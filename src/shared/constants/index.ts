@@ -5,4 +5,4 @@ export {
   getWidthWithPercentage,
 } from './layout';
 
-export {LocalStorageKeys} from './localStorageKeys';
+export { LocalStorageKeys } from './localStorageKeys';

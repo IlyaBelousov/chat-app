@@ -1,9 +1,9 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {MainNavigatorConfig} from 'app/navigators/mainNavigator/config/mainNavigatorConfig';
-import {useAuth} from 'shared/lib/useAuth';
+import { NavigationContainer } from '@react-navigation/native';
+import { MainNavigatorConfig } from 'app/navigators/mainNavigator/config/mainNavigatorConfig';
+import { useAuthStore } from 'features/auth/store';
 
 export const MainNavigator = () => {
-  const {isAuth} = useAuth();
+  const { isAuth } = useAuthStore();
 
   return (
     <NavigationContainer>
